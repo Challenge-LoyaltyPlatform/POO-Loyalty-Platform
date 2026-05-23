@@ -1,12 +1,10 @@
 package loyaltyplatform_modelo.src;
 
-public class Campanha {
+public class Campanha implements Ativavel {
 
     //Definindo atributos da Campanha
     private int idCampanha;
-    private int idEmpresa;
     private String nomeCampanha;
-    private String descricaoCampanha;
     private String dataIniCampanha;
     private String dataFimCampanha;
     private String statusCampanha;
@@ -17,11 +15,9 @@ public class Campanha {
     }
 
     //Construtor com todos os parâmetros
-    public Campanha(int idCampanha, int idEmpresa, String nomeCampanha, String descricaoCampanha, String dataIniCampanha, String dataFimCampanha, String statusCampanha){
+    public Campanha(int idCampanha, String nomeCampanha, String dataIniCampanha, String dataFimCampanha, String statusCampanha){
         this.idCampanha = idCampanha;
-        this.idEmpresa = idEmpresa;
         this.nomeCampanha = nomeCampanha;
-        this.descricaoCampanha = descricaoCampanha;
         this.dataIniCampanha = dataIniCampanha;
         this.dataFimCampanha = dataFimCampanha;
         this.statusCampanha = statusCampanha;
@@ -31,14 +27,8 @@ public class Campanha {
     public int getIdCampanha(){
         return idCampanha;
     }
-    public int getIdEmpresa(){
-        return idEmpresa;
-    }
     public String getNomeCampanha(){
         return nomeCampanha;
-    }
-    public String getDescricaoCampanha(){
-        return descricaoCampanha;
     }
     public String getDataIniCampanha(){
         return dataIniCampanha;
@@ -54,14 +44,8 @@ public class Campanha {
     public void setIdCampanha(int idCampanha){
         this.idCampanha = idCampanha;
     }
-    public void setIdEmpresa(int idEmpresa){
-        this.idEmpresa = idEmpresa;
-    }
     public void setNomeCampanha(String nomeCampanha){
         this.nomeCampanha = nomeCampanha;
-    }
-    public void setDescricaoCampanha(String descricaoCampanha){
-        this.descricaoCampanha = descricaoCampanha;
     }
     public void setDataIniCampanha(String dataIniCampanha){
         this.dataIniCampanha = dataIniCampanha;
@@ -77,13 +61,22 @@ public class Campanha {
     public String toString(){
         return "Dados da Campanha{" +
                 "Id da Campanha= " + getIdCampanha() +
-                ", Id da Empresa Responsável pela Campanha= "+getIdEmpresa() +
                 ", Nome da Campanha= "+getNomeCampanha() +
-                ", Descrição da Campanha= "+getDescricaoCampanha()+
                 ", Data de Inicio da Campanha= "+getDataIniCampanha()+
                 ", Data de Fim da Campanha= "+getDataFimCampanha()+
                 ", Status da Campanha= "+getStatusCampanha()+
                 "}";
     }
 
+    @Override
+    public void ativar() {
+        this.statusCampanha = "ativa";
+        System.out.println("Campanha: " + getNomeCampanha() + " Ativada com sucesso");
+    }
+
+    @Override
+    public void desativar() {
+        this.statusCampanha = "inativa";
+        System.out.println("Campanha: " + getNomeCampanha() + " encerrada.");
+    }
 }

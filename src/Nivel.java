@@ -10,7 +10,6 @@ public class Nivel {
 
     //Construtor vazio
     public Nivel(){
-
     }
 
     //Construtor com todos os parâmetros
@@ -53,7 +52,7 @@ public class Nivel {
     public String toString(){
         return "Nível{" +
                 "Id Nível= " + getIdNivel() +
-                ", nome do loyaltyplatform_modelo.src.Nivel= "+ getNomeNivel() +
+                ", nome do nivel= "+ getNomeNivel() +
                 ", Pontos Mínimos para "+getNomeNivel() + ": "+getPontosMinNivel()+
                 ", Pontos Máximos para esse nível "+getPontosMaxNivel()+
                 "}";
